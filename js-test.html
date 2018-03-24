@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Georgia,arial;}
+.btn-wrpper {overflow: hidden; width: 440px; margin:0 auto; }
+.btn-wrpper button {background-color: #008CBA; float: left; border: none; outline: none; cursor: pointer; height: 38px; line-height: 38px; transition: 0.3s; font-size: 17px; width: 24%;  border-radius: 4px; color: #fff; margin-right: 1%; border:2px solid #008CBA;}
+.btn-wrpper button:hover,.btn-wrpper button.active{background-color: #fff; color:#008CBA; }  
+.imgcontent {display: none;  border-top: none; width: 400px; margin:10px auto 0; } </style>
+</head>
+<body>
+<div class="btn-wrpper">
+  <button class="btn" onclick="showImgs(event, 'black')">Black</button>
+  <button class="btn" onclick="showImgs(event, 'blue')">Blue</button>
+  <button class="btn" onclick="showImgs(event, 'gold')">Gold</button>
+  <button class="btn" onclick="showImgs(event, 'rosegold')">Rose Gold</button>
+</div>
+
+<div id="black" class="imgcontent">
+<img src="images/black.jpeg" alt="black">
+</div>
+<div id="blue" class="imgcontent">
+  <img src="images/blue.jpeg" alt="blue">
+</div>
+<div id="gold" class="imgcontent">
+ <img src="images/gold.jpeg" alt="gold">
+</div>
+<div id="rosegold" class="imgcontent">
+  <img src="images/rose-gold.jpeg" alt="rose-gold">
+</div>
+<script>
+function showImgs(evt, imgName) {
+    var i, imgcontent, btn;
+    imgcontent = document.getElementsByClassName("imgcontent");
+    for (i = 0; i < imgcontent.length; i++) {
+        imgcontent[i].style.display = "none";
+    }
+    btn = document.getElementsByClassName("btn");
+    for (i = 0; i < btn.length; i++) {
+        btn[i].className = btn[i].className.replace("active", "");
+    }
+    document.getElementById(imgName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+     
+</body>
+</html> 
